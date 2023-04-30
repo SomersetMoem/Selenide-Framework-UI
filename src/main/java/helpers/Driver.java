@@ -1,7 +1,10 @@
 package helpers;
 
 import app.AppConfig;
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.Browsers;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.logging.LogEntries;
@@ -12,23 +15,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
 public class Driver {
-
+    /**
+     * Инициализирует настройки WebDriver для выполнения тестов.
+     * PageLoadStrategy - стратегия загрузки страницы, если значение eager, то перед выполнением тестов WebDriver будет ждать пока страница не будет полностью загружена.
+     * BrowserSize - размер окна браузера.
+     * HoldBrowserOpen - параметр  определяет, должен ли WebDriver оставаться открытым после завершения выполнения тестов.
+     * Screenshots - Параметр screenshots определяет, должен ли WebDriver сохранять скриншоты в процессе выполнения тестов.
+     * Если headless = true, то все тесты будут выполнены без графического интерфейса.
+     */
     public static void initDriver() {
 
-        // Get settings from command line
-
         TestConfig.initConfig();
-
-        // Set settings for selenide browser
 
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
-        Configuration.screenshots = false;
+        Configuration.screenshots = true;
 
         if(TestConfig.isHeadless()) {
             Configuration.headless = true;
@@ -44,14 +51,16 @@ public class Driver {
             case "firefox":
                 Configuration.browser = Browsers.FIREFOX;
                 break;
-            default:
-                Configuration.browser = Browsers.CHROME;
-                break;
         }
     }
-
+/**
+ * WebDriverRunner - это часть Selenide, фреймворка для автоматизации тестирования веб-приложений.
+ * Он используется для управления экземплярами WebDriver, которые используются для запуска тестов.
+ * Метод getSelenideDriver() возвращает объект типа SelenideDriver, который обертывает WebDriver, используемый для тестирования.
+ * Метод getWebDriver() возвращает сам WebDriver, который используется для запуска тестов.
+ * В целом, этот метод используется для получения текущего экземпляра WebDriver, который затем может быть использован в тестах. */
     public static WebDriver currentDriver() {
-        return WebDriverRunner.getSelenideDriver().getWebDriver();
+        return WebDriverRunner.getWebDriver();
     }
 
     public static void open(String url) {
@@ -72,7 +81,7 @@ public class Driver {
     }
 
     public static void waitForUrlContains(String urlChunk) {
-        WebDriverWait wait = new WebDriverWait(currentDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(currentDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains(urlChunk));
     }
 

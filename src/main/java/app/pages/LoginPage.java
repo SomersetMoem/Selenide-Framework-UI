@@ -1,6 +1,6 @@
 package app.pages;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide .SelenideElement;
 import helpers.Driver;
 import static com.codeborne.selenide.Selenide.*;
 
