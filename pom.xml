@@ -18,7 +18,7 @@
         <aspectj.version>1.9.4</aspectj.version>
         <user.timezone>Europe/Moscow</user.timezone>
         <timestamp>${maven.build.timestamp}</timestamp>
-        <maven.build.timestamp.format>yyyy-MM-dd-HH-mm-ss</maven.build.timestamp.format>
+        <maven.build.timestamp.format>yyyy-MM-dd-(ss)</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
