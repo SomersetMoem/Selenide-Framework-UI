@@ -22,6 +22,7 @@
         <allure-maven.version>2.12.0</allure-maven.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <aspectj.version>1.9.4</aspectj.version>
+        <allure-selenide.version>2.21.0</allure-selenide.version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -62,7 +63,13 @@
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-testng-adaptor</artifactId>
-            <version>${allure.version}</version>
+            <version>${allure-testng-adaptor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure-selenide.version}</version>
         </dependency>
 
         <dependency>

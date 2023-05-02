@@ -2,8 +2,10 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({A_BaseTestListener.class})
 public class ExampleTest extends A_BaseTest
 {
     @Test
