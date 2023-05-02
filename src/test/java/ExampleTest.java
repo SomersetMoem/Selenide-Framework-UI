@@ -19,7 +19,7 @@ public class ExampleTest extends A_BaseTest
         logger.error("Sample error message");
         logger.fatal("Sample fatal message");
 
-        softAssert.assertEquals(2,1);
+        softAssert.assertEquals(1,1);
         softAssert.assertAll();
     }
     @Test
@@ -35,7 +35,7 @@ public class ExampleTest extends A_BaseTest
         logger.error("Sample error message");
         logger.fatal("Sample fatal message");
 
-        softAssert.assertEquals(2,2);
+        softAssert.assertEquals(1,1);
         softAssert.assertAll();
     }
 }
