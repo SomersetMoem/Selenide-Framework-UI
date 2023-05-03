@@ -15,6 +15,10 @@ public class TestConfig {
         headless = System.getProperty("headless") == null ? "0" : System.getProperty("headless");
     }
 
+    /**
+     * Проверяет, включен ли режим headless веб-драйвера
+     * @return true, если режим headless включен, иначе false
+     */
     public static boolean isHeadless() {
         return headless.contains("1");
     }

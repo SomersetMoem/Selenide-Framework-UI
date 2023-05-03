@@ -530,3 +530,11 @@
 2023-05-02 08:52:29,254 WARN  Sample warn message 
 2023-05-02 08:52:29,254 ERROR Sample error message 
 2023-05-02 08:52:29,254 FATAL Sample fatal message 
+2023-05-03 11:07:42,572 INFO  Sample info message 
+2023-05-03 11:07:42,573 WARN  Sample warn message 
+2023-05-03 11:07:42,573 ERROR Sample error message 
+2023-05-03 11:07:42,573 FATAL Sample fatal message 
+2023-05-03 11:07:43,880 INFO  Sample info message 
+2023-05-03 11:07:43,880 WARN  Sample warn message 
+2023-05-03 11:07:43,880 ERROR Sample error message 
+2023-05-03 11:07:43,880 FATAL Sample fatal message 

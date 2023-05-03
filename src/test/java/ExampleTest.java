@@ -2,16 +2,18 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import io.qameta.allure.testng.Tag;
+import io.qameta.allure.testng.Tags;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({A_BaseTestListener.class})
+
 public class ExampleTest extends A_BaseTest
 {
     @Test
-    @Feature("Login")
-    @Story("Login via email1")
-    @Description("Test login with valid email")
+    @Story("Успешный вход в Систему")
+    @Tags({@Tag("smoke")})
+    @Feature("Аутентификация пользователей")
     public void loginViaEmail() {
         app.loginPage.open();
         app.loginPage.login("tomsmith", "SuperSecretPassword!");
