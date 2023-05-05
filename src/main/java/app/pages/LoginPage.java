@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage {
 
-    public SelenideElement loginField = $("#username1");
+    public SelenideElement loginField = $("#username");
     public SelenideElement passwordField = $("#password");
     public SelenideElement signInButton = $("button.radius");
 

@@ -2,6 +2,7 @@ import app.App;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.AllureAttachment;
+import helpers.DataGenerate;
 import helpers.Driver;
 import io.qameta.allure.testng.AllureTestNg;
 import org.apache.log4j.LogManager;

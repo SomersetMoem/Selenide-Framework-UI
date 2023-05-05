@@ -1,3 +1,5 @@
+import app.AppConfig;
+import helpers.DataGenerate;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
@@ -18,6 +20,7 @@ public class ExampleTest extends A_BaseTest
         app.loginPage.open();
         app.loginPage.login("tomsmith", "SuperSecretPassword!");
 
+
         logger.info("Sample info message");
         logger.warn("Sample warn message");
         logger.error("Sample error message");
@@ -25,6 +28,9 @@ public class ExampleTest extends A_BaseTest
 
         softAssert.assertEquals(1,1);
         softAssert.assertAll();
+
+
+
     }
     @Test
     @Feature("Login")
