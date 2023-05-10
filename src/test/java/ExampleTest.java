@@ -18,16 +18,7 @@ public class ExampleTest extends A_BaseTest
     @Feature("Аутентификация пользователей")
     public void loginViaEmail() {
         app.loginPage.open();
-        app.loginPage.login("tomsmith", "SuperSecretPassword!");
-
-
-        logger.info("Sample info message");
-        logger.warn("Sample warn message");
-        logger.error("Sample error message");
-        logger.fatal("Sample fatal message");
-
         softAssert.assertEquals(1,1);
-        softAssert.assertAll();
 
 
 

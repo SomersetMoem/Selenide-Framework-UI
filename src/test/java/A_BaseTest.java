@@ -9,6 +9,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.apache.log4j.xml.DOMConfigurator;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -32,11 +33,12 @@ class A_BaseTest {
     }
 
     @AfterMethod
-    public void addAttachment() {
+    public void addAttachment(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
         AllureAttachment.screenshotAs("Last screenshot");
         AllureAttachment.pageSource();
         AllureAttachment.browserConsoleLogs();
-        AllureAttachment.addVideo();
+        AllureAttachment.addVideo();}
         Driver.clearCookies();
     }
 
