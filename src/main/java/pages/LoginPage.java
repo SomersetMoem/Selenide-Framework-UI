@@ -1,7 +1,7 @@
-package app.pages;
+package pages;
 
 import com.codeborne.selenide .SelenideElement;
-import helpers.Driver;
+import DriverConfig.Driver;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage extends BasePage {

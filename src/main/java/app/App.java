@@ -1,6 +1,6 @@
 package app;
 
-import app.pages.LoginPage;
+import pages.LoginPage;
 
 public class App {
 

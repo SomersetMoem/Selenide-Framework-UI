@@ -1,4 +1,4 @@
-package helpers;
+package DriverConfig;
 
 import app.AppConfig;
 import com.codeborne.selenide.Browsers;
@@ -20,7 +20,6 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import static io.opentelemetry.semconv.trace.attributes.SemanticAttributes.EventDomainValues.BROWSER;
 
@@ -42,6 +41,12 @@ public class Driver {
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
         Configuration.screenshots = true;
+        Configuration.timeout = 5000;
+        Configuration.pageLoadTimeout = 10000;
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .savePageSource(false)
+                .screenshots(false));
 
         if(TestConfig.isHeadless()) {
             Configuration.headless = true;
@@ -58,7 +63,6 @@ public class Driver {
                 Configuration.browser = Browsers.FIREFOX;
                 break;
         }
-
     }
 
     /**
@@ -123,7 +127,7 @@ public class Driver {
     }
 
     /**
-     * Метод увеличивает размер окна браузера до максимального значения.
+     * Увеличивает размер окна браузера до максимального значения.
      */
     public static void maximize() {
         currentDriver().manage().window().maximize();
@@ -149,15 +153,14 @@ public class Driver {
     }
 
     /**
-     * Метод закрывает текущий экземпляр браузера, освобождает ресурсы и завершает сеанс селениума.
+     * Заакрывает текущий экземпляр браузера, освобождает ресурсы и завершает сеанс селениума
      */
     public static void close() {
         currentDriver().quit();
     }
 
     /**
-
-     * Ожидание на указанное количество секунд.
+     * Ожидание на указанное количество секунд
      * @param seconds время ожидания в секундах
      */
     public static void wait(int seconds)
@@ -170,9 +173,9 @@ public class Driver {
     }
 
     /**
-     * Метод для создания скриншота текущей страницы и сохранения его в папку "screenshots" внутри директории "test-output".
-     * Имя файла скриншота формируется в формате "screenshot_HHmmssSSS.png" с использованием текущего времени.
-     * Если папка "screenshots" не существует, то она будет создана.
+     * Создает скриншот текущей страницы и сохраняет его в папку "screenshots" внутри директории "test-output"
+     * Имя файла скриншота формируется в формате "screenshot_HHmmssSSS.png" с использованием текущего времени
+     * Если папка "screenshots" не существует, то она будет создана
      */
     public static void takeScreenshot() {
 
@@ -190,7 +193,7 @@ public class Driver {
     }
 
     /**
-     * Получает список логов браузера.
+     * Получает список логов браузера
      * @return список объектов типа LogEntry, содержащий записи логов браузера.
      */
     public static List<LogEntry> getBrowserLogs() {
@@ -200,7 +203,7 @@ public class Driver {
     }
 
     /**
-     * Метод addCookie добавляет переданный cookie в текущую сессию браузера.
+     * Добавляет переданный cookie в текущую сессию браузера
      * @param cookie объект типа Cookie, который нужно добавить в текущую сессию браузера
      */
     public static void addCookie(Cookie cookie) {
@@ -208,7 +211,7 @@ public class Driver {
     }
 
     /**
-     * Метод getCookie получает cookie из текущей сессии браузера по его имени.
+     * Получает cookie из текущей сессии браузера по его имени
      * @param cookieName имя cookie, который нужно получить из текущей сессии браузера
      * @return объект типа Cookie, соответствующий переданному имени, если он был найден, иначе null
      */
@@ -217,13 +220,17 @@ public class Driver {
     }
 
     /**
-     * Метод deleteCookie удаляет cookie из текущей сессии браузера по его имени.
+     * Удаляет cookie из текущей сессии браузера по его имени
      * @param cookieName имя cookie, который нужно удалить из текущей сессии браузера
      */
     public static void deleteCookie(String cookieName) {
         currentDriver().manage().deleteCookieNamed(cookieName);
     }
 
+    /**
+     * Получает все логи браузера
+     * @return  Строка, содержащая все логи консоли браузера, разделенные символом новой строки
+     */
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }

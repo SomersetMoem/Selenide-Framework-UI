@@ -1,16 +1,12 @@
-import app.AppConfig;
-import helpers.DataGenerate;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import io.qameta.allure.testng.Tag;
 import io.qameta.allure.testng.Tags;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 
-public class ExampleTest extends A_BaseTest
+public class ExampleTest extends BaseTest
 {
     @Test
     @Story("Успешный вход в Систему")
