@@ -1,8 +1,7 @@
 package pages;
 import Helpers.ApiAuth;
 import Helpers.DataGenerate;
-import Helpers.SwitchWindows;
-import app.AppConfig;
+import App.AppConfig;
 import com.codeborne.selenide.*;
 import Helpers.Trim;
 import io.qameta.allure.Step;

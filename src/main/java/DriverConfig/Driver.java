@@ -1,6 +1,6 @@
 package DriverConfig;
 
-import app.AppConfig;
+import App.AppConfig;
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

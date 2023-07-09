@@ -1,13 +1,11 @@
 import DriverConfig.Driver;
-import Listner.CustomTestListener;
-import app.App;
+import App.App;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.asserts.SoftAssert;
 
 public class BaseTest {
