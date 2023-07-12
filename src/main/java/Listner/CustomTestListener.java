@@ -19,7 +19,6 @@ public class CustomTestListener implements ITestListener {
     {
         log.info("Test class started:" + result.getTestClass().getName());
         log.info("Test started: " + result.getName());
-
     }
 
     @Override

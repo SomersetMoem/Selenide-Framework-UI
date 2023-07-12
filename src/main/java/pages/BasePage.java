@@ -67,7 +67,7 @@ public abstract class BasePage {
     {
         Date expDate = new Date();
         expDate.setTime(expDate.getTime() * (1000*1000));
-        Cookie cookie = new Cookie("accessToken", ApiAuth.getToken(DataGenerate.generatePhoneNumber(), DataGenerate.generatorCode()),"dev.finmart24.ru", "/", expDate);
+        Cookie cookie = new Cookie("accessToken", ApiAuth.getToken(DataGenerate.generatePhoneNumber(), DataGenerate.generatorCode()),"domen", "/", expDate);
         WebDriverRunner.getWebDriver().manage().addCookie(cookie);
         Selenide.refresh();
     }
